@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useVideosContext } from '../../context/Videos';
 import Titulo from '../Titulo';
-import BotaoCategoria from '../BotaoCategoria';
+import BotaoCategoria from '../ListaVideos';
 
 const BannerVazio = styled.div`
     height: 648px;
