@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useVideosContext } from '../../context/Videos';
-import { useId } from 'react';
+import { useVideosContext } from '../Videos';
 
 const FormContext = createContext();
 
@@ -12,6 +11,8 @@ export const FormProvider = ({children, video}) => {
     const [videoCategoria, setVideoCategoria] = useState('');
     const [videoUrl, setVideoUrl] = useState('');
     const [videoDescricao, setVideoDescricao] = useState('');
+    const [novaCategoria, setNovaCategoria] = useState("");
+    const [novaCor, setNovaCor] = useState("#000");
 
     useEffect(() => {
         if (video) {
@@ -41,6 +42,16 @@ export const FormProvider = ({children, video}) => {
         limparCampos();
     }
 
+    const formCategoriaSubmit = (evento) => {
+        evento.preventDefault();
+        const addCategoria = {
+            "categoria": novaCategoria,
+            "cor": novaCor
+        }
+        videoContext.addCategoria(addCategoria)
+        videoContext.modalCategoria(false)
+    }
+
     const limparCampos = () => {
         setVideoCategoria('');
         setVideoDescricao('');
@@ -57,7 +68,10 @@ export const FormProvider = ({children, video}) => {
                 videoCategoria, setVideoCategoria,
                 videoUrl, setVideoUrl,
                 videoDescricao, setVideoDescricao,
-                formSubmit, limparCampos
+                novaCategoria, setNovaCategoria,
+                novaCor, setNovaCor,
+                formSubmit, limparCampos,
+                formCategoriaSubmit,
             }}
         >
             {children}
