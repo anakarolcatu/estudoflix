@@ -7,7 +7,7 @@ import BotaoCategoria from '../BotaoCategoria';
 const BannerVazio = styled.div`
     height: 648px;
     width: 100%;
-    background-color: var(--cinza);
+    background-color: #262626;
 `
 const BannerEstilizado = styled.div`
     display: none;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useVideosContext } from '../../context/Videos';
+import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const CardContainer = styled.div`
     max-width: 373px;
@@ -47,8 +48,8 @@ const Card = ({ cor, video }) => {
                 <Imagem $cor={cor} />
             </Link>
             <Rodape>
-                <Botao onClick={() => videosContext.deletarVideo(video)}>DELETAR</Botao>
-                <Botao onClick={() => videosContext.editarVideo(video)}>EDITAR</Botao>
+                <Botao onClick={() => videosContext.deletarVideo(video)}><HiOutlineTrash size={28}/>DELETAR</Botao>
+                <Botao onClick={() => videosContext.editarVideo(video)}><HiOutlinePencil size={28}/>EDITAR</Botao>
             </Rodape>
         </CardContainer>
     )

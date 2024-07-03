@@ -11,7 +11,7 @@ const TituloCategorias = styled.h2`
     font-size: 1.5rem;
     border-radius: 15px;
     margin-bottom: 40px;
-    background-color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.$cor};
     @media screen and (min-width: 1024px) {
         width: 432px;
         font-size: 2rem;
@@ -20,7 +20,7 @@ const TituloCategorias = styled.h2`
 
 const BotaoCategoria = ({children, cor}) => {
     return (
-        <TituloCategorias $bgColor={cor}>
+        <TituloCategorias $cor={cor}>
             {children}
         </TituloCategorias>
     )
