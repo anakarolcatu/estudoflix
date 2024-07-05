@@ -7,7 +7,7 @@ const TituloEstilizado = styled.div`
     line-height: 70px;
 `
 
-const Titulo = () => {
+const Titulo = ({children}) => {
     return (
         <TituloEstilizado>
             {children}

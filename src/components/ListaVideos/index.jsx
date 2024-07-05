@@ -24,7 +24,7 @@ const VideoContainer = styled.div`
     `
 const ListaVideos = ({videos, categorias}) => {
     return (
-        videos.length > 0 && <>
+        (videos.length > 0) && <>
             <BotaoCategoria cor={categorias.cor}>
                 {categorias.nome}
             </BotaoCategoria>

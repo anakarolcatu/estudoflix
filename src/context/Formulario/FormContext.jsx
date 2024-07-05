@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useVideosContext } from '../Videos';
+import { useVideosContext } from "../Videos/Videos";
+
 //Cria o contexto e consome usando o FormContext
 const FormContext = createContext();
 

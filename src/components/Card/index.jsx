@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useVideosContext } from '../../context/Videos';
+import { useVideosContext } from '../../context/Videos/Videos';
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const CardContainer = styled.div`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useVideosContext } from '../../context/Videos/Videos';
-import Titulo from '../Titulo';
+import Titulo from '../Titulo'
 import NovaCategoriaFormulario from '../NovaCategoriaFormulario';
 import { HiOutlineX } from "react-icons/hi";
 
@@ -44,7 +44,7 @@ const AddCategoriaModal = () => {
             <>
                 <Overlay onClick={() => videoContext.categoriaModal(false)} />
                 <Dialog open={videoContext.isCategoryModalOpen}>
-                    <Titulo>ADICIONAR CATEGORIA:</Titulo>
+                    <Titulo> ADICIONAR CATEGORIA:</Titulo>
                     <NovaCategoriaFormulario />
                     <ModalButton onClick={() => videoContext.categoriaModal(false)}>
                         <HiOutlineX />

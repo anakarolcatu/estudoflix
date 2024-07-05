@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Formulario from '../Formulario';
 import { HiOutlineX } from "react-icons/hi";
 import { useVideosContext } from "../../context/Videos/Videos.jsx";
 import Titulo from '../Titulo';
+import Formulario from "../Formulario/Formulario.jsx";
 
 const Overlay = styled.div`
   background-color: #000000b2;

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom"
-import GlobalStyle from "../../componentes/GlobalStyle/GlobalStyle";
-import Header from "../../componentes/Header";
+import GlobalStyle from "../../components/GlobalStyle/GlobalStyle";
+import Header from "../../components/Header";
 import VideosProvider from "../../context/Videos/Videos";
-import Footer from "../../componentes/Footer";
+import Footer from "../../components/Footer";
 
 const BasePage = () => {
     console.log('FormContext carregado');

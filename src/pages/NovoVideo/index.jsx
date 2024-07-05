@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Formulario from "../../components/Formulario"
-import { useVideosContext } from "../../context/Videos"
 import Titulo from "../../components/Titulo"
 import AddCategoriaModal from "../../components/AddCategoriaModal"
+import Formulario from "../../components/Formulario/Formulario"
+import { useVideosContext } from "../../context/Videos/Videos"
 
 const StyledNewVideoContainer = styled.section`
     width: 100%;
