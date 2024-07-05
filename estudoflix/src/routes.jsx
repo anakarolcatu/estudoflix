@@ -1,23 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NaoEncontrada from "./pages/NaoEncontrada";
-import BasePage from "./pages/BasePage";
-import Inicio from "./pages/Inicio";
+import HomePage from "./pages/HomePage";
 import NovoVideo from "./pages/NovoVideo";
-import Player from './pages/Player';
+import Player from "./pages/Player";
+import BasePage from "./pages/BasePage";
+import NaoEncontrada from "./pages/NaoEncontrada";
 
-const AppRoutes = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<BasePage />}>
-                    <Route index element={<Inicio />} />
-                    <Route path="novovideo" element={<NovoVideo />} />
-                    <Route path=":id" element={<Player />} />
-                    <Route path="*" element={<NaoEncontrada />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    )
+function AppRoutes() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<BasePage />}>
+          <Route index element={<HomePage />}/>
+          <Route path="newvideo" element={<NovoVideo />}/>
+          <Route path=":id" element={<Player />}/>
+          <Route path="*" element={<NaoEncontrada />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default AppRoutes;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useVideosContext } from '../../context/Videos';
+import { useVideosContext } from '../../context/Videos/Videos';
 import Titulo from '../Titulo';
 import BotaoCategoria from '../BotaoCategoria';
 
@@ -70,7 +70,7 @@ const Banner = () => {
         <Link to={`/${videoBanner.id}`}>
             <BannerEstilizado $cover={videoBanner.cover}>
                 <div>
-                    <BotaoCategoria color={corCategoria}>{videoBanner.categoria}</BotaoCategoria>
+                    <BotaoCategoria cor={corCategoria}>{videoBanner.categoria}</BotaoCategoria>
                     <h3>{videoBanner.titulo}</h3>
                     <p>{videoBanner.descricao}</p>
                 </div>

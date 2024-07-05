@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useVideosContext } from '../Videos';
-
+//Cria o contexto e consome usando o FormContext
 const FormContext = createContext();
 
-export const useFormContext = () => useContext(FormContext);
 
+export const useFormContext = () => useContext(FormContext);
+//Provedor de contexto que usa useEffect para atualizar os estados baseados no video passado como prop
 export const FormProvider = ({children, video}) => {
     const videoContext = useVideosContext();
     const [videoTitulo, setVideoTitulo] = useState('');
@@ -22,7 +23,7 @@ export const FormProvider = ({children, video}) => {
             setVideoDescricao(video.descricao);
         }
     }, [video]);
-
+//trada do envio do formulario para adicionar ou alterar um video
     const formSubmit = (evento) => {
         evento.preventDefault();
         videoContext.editarVideo(null);
@@ -41,7 +42,7 @@ export const FormProvider = ({children, video}) => {
         }
         limparCampos();
     }
-
+//envio do formulario para adicionar nova categoria
     const formCategoriaSubmit = (evento) => {
         evento.preventDefault();
         const addCategoria = {
@@ -60,7 +61,7 @@ export const FormProvider = ({children, video}) => {
     };
 
     
-
+//fornece todos os estados e funções necessárias para os filhos
     return (
         <FormContext.Provider
             value={{

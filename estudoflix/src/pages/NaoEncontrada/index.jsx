@@ -1,12 +1,11 @@
 import styled from "styled-components";
+import Titulo from "../../components/Titulo";
 
 const Container = styled.section`
     color: #fff;
     margin-top: 150px;
 `
-const Titulo = styled.h2`
-    font-size: 3rem;
-`
+
 const Paragrafo = styled.p`
     font-size: 1.75rem;
 `

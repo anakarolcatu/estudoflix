@@ -12,7 +12,7 @@ const FormularioEstilo = styled.form`
     width: 100%;
     margin: 0 auto;
     gap: 40px;
-`
+`;
 
 const DivBotao = styled.div`
     display: flex;
@@ -20,20 +20,19 @@ const DivBotao = styled.div`
     align-items: center;
     max-width: 525px;
     gap: 15px;
-    @media screen and (min-width: 1024) {
+    @media screen and (min-width: 1024px) {
         flex-direction: row;
         justify-content: space-between;
     }
-`
+`;
 
-const Formulario = ({method, video}) => {
-
+const Formulario = ({ method, video }) => {
     return (
         <FormProvider video={video}>
             <FormContent method={method} />
         </FormProvider>
-    )
-}
+    );
+};
 
 const FormContent = ({ method }) => {
     const {
@@ -43,7 +42,8 @@ const FormContent = ({ method }) => {
         videoDescricao, setVideoDescricao,
         formSubmit, limparCampos,
     } = useFormContext();
-    
+
+    const { categorias } = useVideosContext();
 
     return (
         <FormularioEstilo onSubmit={(evento) => formSubmit(evento)}>
@@ -60,7 +60,7 @@ const FormContent = ({ method }) => {
                 cor={method ? '#6bd1ff' : '#696969'}
                 label="Categoria"
                 id="categoria"
-                categorias={useVideosContext().categorias}
+                categorias={categorias}
                 value={videoCategoria}
                 handleChange={(value) => setVideoCategoria(value)}
             />
@@ -73,7 +73,7 @@ const FormContent = ({ method }) => {
                 placeholder="Link do video"
                 handleChange={(value) => setVideoUrl(value)}
             />
-            <TextAreaForm 
+            <TextAreaForm
                 cor={method ? '#6bd1ff' : '#696969'}
                 label="Descrição"
                 id="descricao"
@@ -86,7 +86,7 @@ const FormContent = ({ method }) => {
                 <Botao type="reset" onClick={() => limparCampos()}>LIMPAR</Botao>
             </DivBotao>
         </FormularioEstilo>
-    )
-}
+    );
+};
 
 export default Formulario;

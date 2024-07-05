@@ -1,11 +1,12 @@
-import GlobalStyle from "../../components/GlobalStyles";
-import { Outlet } from "react-router-dom";
-import Header from "../../components/header";
-import Footer from "../../components/Footer";
-import VideosProvider from "../../context/Videos";
+import { Outlet } from "react-router-dom"
+import GlobalStyle from "../../componentes/GlobalStyle/GlobalStyle";
+import Header from "../../componentes/Header";
+import VideosProvider from "../../context/Videos/Videos";
+import Footer from "../../componentes/Footer";
 
 const BasePage = () => {
-    return (
+    console.log('FormContext carregado');
+    return(
         <>
             <GlobalStyle />
             <Header />

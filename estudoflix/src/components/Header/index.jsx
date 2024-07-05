@@ -1,49 +1,45 @@
-import useActiveRoute from "../../hooks/useActiveRoute";
-import Botao from "../Botao";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Navegacao from "../Navegacao";
 
 const HeaderEstilizado = styled.header`
   background-color: #000;
   box-sizing: border-box;
   height: 125px;
-  min-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 52px;
-  border-bottom: 4px solid var(--border, rgba(34, 113, 209, 1));
-  box-shadow: 0px 5px 29px 0px rgba(34, 113, 209, 0.7);
-  img {
-    height: 40px;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  padding: 0 20px;
+  border-top: var(--border);
+  box-shadow: var(--boxShadow);
+  >a>img {
+    display: none;
   }
-  @media (max-width: 730px) {
-    .header {
-      display: none;
+  @media screen and (min-width: 1024px){
+        justify-content: space-between;
+        position: relative;
+        border-top: none;
+        border-bottom: var(--border);
+        z-index: 0;
+        >a>img{
+            display: inline;
+            width: 168px;
+        }
+
     }
-  }
-`;
-const Navegacao = styled.nav`
-  display: flex;
-  gap: 32px;
-`;
+`
 
 const Header = () => {
-  const isHomeActive = useActiveRoute("/");
-  const isNewVideoActive = useActiveRoute("/novovideo");
   return (
     <HeaderEstilizado>
       <Link to={"/"}>
         <img src="/imagens/estudoflix.png" alt="EstudoFlix logo em azul" />
       </Link>
-      <Navegacao>
-        <Link to={"/"}>
-          <Botao active={isHomeActive}>HOME</Botao>
-        </Link>
-        <Link to={"/novovideo"}>
-          <Botao active={isNewVideoActive}>NOVO VIDEO</Botao>
-        </Link>
-      </Navegacao>
+      <Navegacao />
     </HeaderEstilizado>
   );
 };

@@ -5,7 +5,7 @@ const videosApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-a
 const categoriasApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-api/categorias';
 export const VideosContext = createContext();
 
-export default function VideosProvider({children}) {
+export default function VideosProvider({ children }) {
     const [videos, setVideos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [videoSelecionado, setVideoSelecionado] = useState(null);
@@ -13,85 +13,95 @@ export default function VideosProvider({children}) {
 
     useEffect(() => {
         axios.get(videosApi)
-        .then(resposta => {
-            setVideos(resposta.data)
-        })
-    }, [])
+            .then(resposta => {
+                setVideos(resposta.data);
+            })
+            .catch(error => {
+                console.error("Error fetching videos: ", error);
+            });
+    }, []);
 
     useEffect(() => {
         axios.get(categoriasApi)
-        .then(resposta => {
-            setCategorias(resposta.data)
-        })
-    }, [])
+            .then(resposta => {
+                setCategorias(resposta.data);
+            })
+            .catch(error => {
+                console.error("Error fetching categorias: ", error);
+            });
+    }, []);
 
     return (
-        <VideosContext.Provider value={{videos, setVideos, categorias, setCategorias, videoSelecionado, setVideoSelecionado, modalCategoriaOpen, setModalCategoriaOpen}}>
+        <VideosContext.Provider value={{ videos, setVideos, categorias, setCategorias, videoSelecionado, setVideoSelecionado, modalCategoriaOpen, setModalCategoriaOpen }}>
             {children}
         </VideosContext.Provider>
-    )
+    );
 }
 
-export function useVideosContext(){
-    const {videos, setVideos} = useContext(VideosContext);
-    const {categorias, setCategorias} = useContext(VideosContext);
-    const {videoSelecionado, setVideoSelecionado} = useContext(VideosContext);
-    const {modalCategoriaOpen, setModalCategoriaOpen} = useContext(VideosContext);
+export function useVideosContext() {
+    const context = useContext(VideosContext);
+
+    if (!context) {
+        throw new Error("useVideosContext must be used within a VideosProvider");
+    }
+
+    const { videos, setVideos, categorias, setCategorias, videoSelecionado, setVideoSelecionado, modalCategoriaOpen, setModalCategoriaOpen } = context;
 
     function adicionarVideo(video) {
         axios.post(videosApi, {
-            "titulo":video.titulo,
-            "ulr":video.url,
-            "descricao":video.descricao,
-            "categoria":video.categoria
+            titulo: video.titulo,
+            url: video.url,
+            descricao: video.descricao,
+            categoria: video.categoria
         })
         .then((resposta) => {
-            setVideos([...videos, resposta.data])
-            alert("Video cadastrado com sucesso!")
+            setVideos([...videos, resposta.data]);
+            alert("Video cadastrado com sucesso!");
         })
-        .catch(() => alert("Não foi possível adicionar o video, tente novamente."))
+        .catch(() => alert("Não foi possível adicionar o video, tente novamente."));
     }
 
     function editarVideo(video) {
-        video ? window.scrollTo(0,350) : "";
+        if (video) window.scrollTo(0, 350);
         setVideoSelecionado(video);
     }
 
     function alterarVideo(video) {
         axios.put(`${videosApi}/${video.id}`, {
-            "titulo":video.titulo,
-            "ulr":video.url,
-            "descricao":video.descricao,
-            "categoria":video.categoria
+            titulo: video.titulo,
+            url: video.url,
+            descricao: video.descricao,
+            categoria: video.categoria
         })
         .then(() => {
-            setVideos(videos.map(thisvideo => thisvideo.id === video.id ? video : thisvideo))
-            alert("Video alterado!")
+            setVideos(videos.map(thisVideo => thisVideo.id === video.id ? video : thisVideo));
+            alert("Video alterado!");
         })
-        .catch(() => alert("Não foi possível editar o vídeo, tente novamente."))
+        .catch(() => alert("Não foi possível editar o vídeo, tente novamente."));
     }
 
     function deletarVideo(video) {
         axios.delete(`${videosApi}/${video.id}`)
         .then(() => {
-            setVideos(videos.filter((thisVideo) => thisVideo.id !== video.id))
+            setVideos(videos.filter(thisVideo => thisVideo.id !== video.id));
         })
-        .catch(() => alert("Não foi possível apagar o vídeo, tente novamente."))
+        .catch(() => alert("Não foi possível apagar o vídeo, tente novamente."));
     }
 
     function adicionarCategoria(categoria) {
         axios.post(categoriasApi, {
-            "nome": categoria.nome,
-            "cor": categoria.cor
+            nome: categoria.nome,
+            cor: categoria.cor
         })
         .then((resposta) => {
-            setCategorias([...categorias, resposta.data])
-            alert("Categoria adicionada!")
+            setCategorias([...categorias, resposta.data]);
+            alert("Categoria adicionada!");
         })
-        .catch(() => alert("Não foi possível adicionar a categoria, tente novamente."))
+        .catch(() => alert("Não foi possível adicionar a categoria, tente novamente."));
     }
-    function modalCategoria(boolean){
-        setModalCategoriaOpen(boolean)
+
+    function modalCategoria(boolean) {
+        setModalCategoriaOpen(boolean);
     }
 
     return {
@@ -105,6 +115,5 @@ export function useVideosContext(){
         deletarVideo,
         alterarVideo,
         adicionarCategoria
-    }
-
+    };
 }

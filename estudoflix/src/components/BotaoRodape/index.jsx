@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HiOutlinePlusCircle, HiOutlineHome } from "react-icons/hi";
-import useActiveRoute from "../../hooks/useActiveRoute";
+import useActiveRoute from "../../context/useActiveRoute";
 
 const BotaoMobileEstilizado = styled.button`
     background-color: ${(props) => props.active ? 'rgba(34, 113, 209, 0.24)' : 'transparent'};

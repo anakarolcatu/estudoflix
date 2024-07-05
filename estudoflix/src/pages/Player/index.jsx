@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useVideosContext } from "../../context/Videos";
+import { useVideosContext } from "../../context/Videos/Videos";
 import styled from "styled-components"
 import NaoEncontrada from '../NaoEncontrada';
 

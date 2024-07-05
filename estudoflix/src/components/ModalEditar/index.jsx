@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Formulario from "../Formulario";
+import Formulario from '../Formulario';
 import { HiOutlineX } from "react-icons/hi";
-import { useVideosContext } from "../../context/Videos";
+import { useVideosContext } from "../../context/Videos/Videos.jsx";
 import Titulo from '../Titulo';
 
 const Overlay = styled.div`
