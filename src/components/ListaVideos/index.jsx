@@ -22,7 +22,7 @@ const VideoContainer = styled.div`
             border-radius: 20px;
         }
     `
-const ListaVideos = ({videos, categorias}) => {
+const ListaVideos = ({ categorias, videos }) => {
     return (
         (videos.length > 0) && <>
             <BotaoCategoria cor={categorias.cor}>

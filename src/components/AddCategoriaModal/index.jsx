@@ -40,13 +40,13 @@ const AddCategoriaModal = () => {
     const videoContext = useVideosContext();
     
     return (
-        videoContext.isCategoryModalOpen && (
+        videoContext.modalCategoriaOpen && (
             <>
-                <Overlay onClick={() => videoContext.categoriaModal(false)} />
-                <Dialog open={videoContext.isCategoryModalOpen}>
+                <Overlay onClick={() => videoContext.modalCategoria(false)} />
+                <Dialog open={videoContext.modalCategoriaOpen}>
                     <Titulo> ADICIONAR CATEGORIA:</Titulo>
                     <NovaCategoriaFormulario />
-                    <ModalButton onClick={() => videoContext.categoriaModal(false)}>
+                    <ModalButton onClick={() => videoContext.modalCategoria(false)}>
                         <HiOutlineX />
                     </ModalButton>
                 </Dialog>

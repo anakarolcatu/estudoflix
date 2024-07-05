@@ -4,16 +4,19 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const videosApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-api/videos';
 const categoriasApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-api/categorias';
 export const VideosContext = createContext();
+VideosContext.displayName = 'Videos';
 
 export default function VideosProvider({ children }) {
     const [videos, setVideos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [videoSelecionado, setVideoSelecionado] = useState(null);
     const [modalCategoriaOpen, setModalCategoriaOpen] = useState(false);
-
+    
     useEffect(() => {
+        console.log("Fetching videos...")
         axios.get(videosApi)
             .then(resposta => {
+                console.log("Videos fetched successfully:", resposta.data);
                 setVideos(resposta.data);
             })
             .catch(error => {
@@ -22,8 +25,10 @@ export default function VideosProvider({ children }) {
     }, []);
 
     useEffect(() => {
+        console.log("Fetching categorias...");
         axios.get(categoriasApi)
             .then(resposta => {
+                console.log("Categorias fetched successfully:", resposta.data);
                 setCategorias(resposta.data);
             })
             .catch(error => {
@@ -40,10 +45,6 @@ export default function VideosProvider({ children }) {
 
 export function useVideosContext() {
     const context = useContext(VideosContext);
-
-    if (!context) {
-        throw new Error("useVideosContext must be used within a VideosProvider");
-    }
 
     const { videos, setVideos, categorias, setCategorias, videoSelecionado, setVideoSelecionado, modalCategoriaOpen, setModalCategoriaOpen } = context;
 

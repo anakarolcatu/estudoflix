@@ -5,7 +5,6 @@ import VideosProvider from "../../context/Videos/Videos";
 import Footer from "../../components/Footer";
 
 const BasePage = () => {
-    console.log('FormContext carregado');
     return(
         <>
             <GlobalStyle />
