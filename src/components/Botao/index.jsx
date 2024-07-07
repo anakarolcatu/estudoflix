@@ -11,9 +11,13 @@ const StyledButton = styled.button`
     font-weight: 900;
     text-align: center;
     cursor: pointer;
+    &:hover{
+        background-color: #fff;
+        color: #2271D1;
+    }
     &.active{
         background-color:#000000E5;
-        border: 2px solid #2271D1;
+        border-color: #2271D1;
         box-shadow: 0px 0px 12px 4px #2271D1 inset;
         color: #2271D1;
     }

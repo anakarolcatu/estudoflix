@@ -3,6 +3,7 @@ import Titulo from "../../components/Titulo"
 import AddCategoriaModal from "../../components/AddCategoriaModal"
 import Formulario from "../../components/Formulario/Formulario"
 import { useVideosContext } from "../../context/Videos/Videos"
+import Botao from "../../components/Botao"
 
 const StyledNewVideoContainer = styled.section`
     width: 100%;
@@ -13,9 +14,8 @@ const StyledNewVideoContainer = styled.section`
 `
 const StyledParagraph = styled.p`
     text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.25rem;
+    font-weight: 300;
     color: #FFFFFF;
     margin-bottom: 40px;
 `
@@ -29,26 +29,21 @@ const StyledFormContainer = styled.div`
     justify-content: center;
 `
 const StyledSubTitle = styled.h3`
-    padding: 15px;
+    padding: 20px 0;
     font-size: 2.25rem;
     width: 100%;
-    text-align: center;
     color: #FFFFFF;
-    font-weight: 600;
+    font-weight: 400;
     border-top: 3px solid #393939;
     border-bottom: 3px solid #393939;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 `
 const StyledNewCategoryButton = styled.button`
     position: absolute;
-    top: -80px;
-    right: 20px;
+    top: -70px;
+    right: 30px;
     background-color: transparent;
-    border: 3px solid #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    color: #FFFFFF;
-    font-size: 1rem;
+    border: none;
 ` 
 
 const NovoVideo = () => {
@@ -57,14 +52,14 @@ const NovoVideo = () => {
 
     return(
         <StyledNewVideoContainer>
-            <Titulo>NOVO VIDEO</Titulo>
+            <Titulo>NOVO VÍDEO</Titulo>
             <StyledParagraph>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO.</StyledParagraph>
             <StyledFormContainer>
                 <StyledSubTitle>Criar Card</StyledSubTitle>
                 <Formulario />
             </StyledFormContainer>
-            <StyledNewCategoryButton onClick={() => videoContext.modalCategoria(true)}>
-                NOVA CATEGORIA
+            <StyledNewCategoryButton>
+                <Botao onClick={() => videoContext.modalCategoria(true)}>NOVA CATEGORIA</Botao>
             </StyledNewCategoryButton>
             <AddCategoriaModal />
         </StyledNewVideoContainer>

@@ -101,6 +101,12 @@ export function useVideosContext() {
         .catch(() => alert("Não foi possível adicionar a categoria, tente novamente."));
     }
 
+    const extractVideoId = (url) => {
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const matches = url.match(regex);
+        return matches ? matches[1] : null;
+      };
+
     function modalCategoria(boolean) {
         setModalCategoriaOpen(boolean);
     }
@@ -115,6 +121,7 @@ export function useVideosContext() {
         adicionarVideo,
         deletarVideo,
         alterarVideo,
-        adicionarCategoria
+        adicionarCategoria,
+        extractVideoId
     };
 }

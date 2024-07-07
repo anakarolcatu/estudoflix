@@ -13,7 +13,7 @@ const HeaderEstilizado = styled.header`
   position: fixed;
   bottom: 0;
   z-index: 1;
-  padding: 0 20px;
+  padding: 0 60px;
   border-top: var(--border);
   box-shadow: var(--boxShadow);
   >a>img {

@@ -5,6 +5,7 @@ const TituloEstilizado = styled.div`
     font-size: 3.75rem;
     font-weight: 900;
     line-height: 70px;
+    margin-bottom: 30px;
 `
 
 const Titulo = ({children}) => {

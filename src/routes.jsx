@@ -11,7 +11,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<BasePage />}>
           <Route index element={<HomePage />}/>
-          <Route path="newvideo" element={<NovoVideo />}/>
+          <Route path="novovideo" element={<NovoVideo />}/>
           <Route path=":id" element={<Player />}/>
           <Route path="*" element={<NaoEncontrada />}/>
         </Route>
