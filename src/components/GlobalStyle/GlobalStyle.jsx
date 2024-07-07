@@ -46,7 +46,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	line-height: 1;
-    background-color: #262626;
+    background-color: rgba(0, 0, 0, 0.9);
 	color: #fff;
 	min-height: 100vh;
 }

@@ -5,6 +5,7 @@ import { GoHome, GoPlusCircle } from "react-icons/go";
 
 const StyledNav = styled.nav`
     background-color: #000;
+    
 `
 
 
@@ -14,17 +15,17 @@ const Navegacao = () => {
         <StyledNav>
             {activePage === "/" 
                 ?   <NavItem 
-                        url="novovideo" 
-                        imagem="/imagens/home.png" 
-                        activeIcon={<GoPlusCircle />}
+                        url="novovideo"  
+                        activeIcon={<GoPlusCircle size={64} />}
+                        icon={<GoHome size={48} />}
                         reverse={false}
                     >
                         HOME
                     </NavItem>
                 :   <NavItem 
-                        url="/" 
-                        imagem="/imagens/novovideo.png" 
-                    activeIcon={<GoHome />}
+                        url="/"  
+                    activeIcon={<GoHome size={64}/>}
+                    icon={<GoPlusCircle size={48} />}
                         reverse={true}
                     >
                         NOVO VIDEO

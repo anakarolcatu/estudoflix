@@ -58,8 +58,8 @@ const NovoVideo = () => {
                 <StyledSubTitle>Criar Card</StyledSubTitle>
                 <Formulario />
             </StyledFormContainer>
-            <StyledNewCategoryButton>
-                <Botao onClick={() => videoContext.modalCategoria(true)}>NOVA CATEGORIA</Botao>
+            <StyledNewCategoryButton onClick={() => videoContext.modalCategoria(true)}>
+                <Botao>NOVA CATEGORIA</Botao>
             </StyledNewCategoryButton>
             <AddCategoriaModal />
         </StyledNewVideoContainer>

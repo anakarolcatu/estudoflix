@@ -63,8 +63,9 @@ export function useVideosContext() {
     }
 
     function editarVideo(video) {
-        if (video) window.scrollTo(0, 350);
+        console.log("editarVideo chamado com:", video);
         setVideoSelecionado(video);
+        video ? window.scrollTo({ top: 0, behavior: 'smooth' }): "";
     }
 
     function alterarVideo(video) {
@@ -85,6 +86,7 @@ export function useVideosContext() {
         axios.delete(`${videosApi}/${video.id}`)
         .then(() => {
             setVideos(videos.filter(thisVideo => thisVideo.id !== video.id));
+            alert("Vídeo deletado com sucesso!");
         })
         .catch(() => alert("Não foi possível apagar o vídeo, tente novamente."));
     }
@@ -106,6 +108,10 @@ export function useVideosContext() {
         const matches = url.match(regex);
         return matches ? matches[1] : null;
       };
+      const getThumbUrl = (url) => {
+        const videoId = extractVideoId(url);
+        return videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '';
+    };
 
     function modalCategoria(boolean) {
         setModalCategoriaOpen(boolean);
@@ -122,6 +128,7 @@ export function useVideosContext() {
         deletarVideo,
         alterarVideo,
         adicionarCategoria,
-        extractVideoId
+        extractVideoId,
+        getThumbUrl
     };
 }

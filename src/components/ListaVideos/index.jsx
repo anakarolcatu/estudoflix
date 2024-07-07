@@ -6,7 +6,7 @@ const VideoContainer = styled.div`
         width: 100%;
         display: flex;
         margin-bottom: 60px;
-        gap: 20px;
+        gap: 30px;
         overflow-x: auto;
         overflow-y: auto;
         scrollbar-width: thin;
@@ -23,6 +23,7 @@ const VideoContainer = styled.div`
         }
     `
 const ListaVideos = ({ categorias, videos }) => {
+    
     return (
         (videos.length > 0) && <>
             <BotaoCategoria cor={categorias.cor}>

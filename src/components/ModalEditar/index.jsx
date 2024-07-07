@@ -11,10 +11,13 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Dialog = styled.dialog`
-  position: absolute;
+  position: relative;
   top: 380px;
   left: 0;
   width: 374px;
@@ -28,8 +31,8 @@ const Dialog = styled.dialog`
 `;
 const ModalFechar = styled.button`
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -41,11 +44,12 @@ const ModalEditar = ({ videoSelecionado }) => {
   function fecharModal() {
     videoContext.editarVideo(null);
   }
+  console.log(videoSelecionado);
 
   return (
     videoSelecionado && (
       <>
-        <Overlay onClick={() => fecharModal()} />
+        <Overlay onClick={() => fecharModal()}>
         <Dialog
           onClose={() => fecharModal()}
           open={!!videoSelecionado}
@@ -53,9 +57,10 @@ const ModalEditar = ({ videoSelecionado }) => {
             <Titulo>EDITAR VIDEO:</Titulo>
             <Formulario method="dialog" video={videoSelecionado} />
             <ModalFechar onClick={() => fecharModal()}>
-                <HiOutlineX />
+                <HiOutlineX size={64}/>
             </ModalFechar>
         </Dialog>
+        </Overlay>
       </>
     )
   );

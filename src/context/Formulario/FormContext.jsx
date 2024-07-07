@@ -50,7 +50,7 @@ export const FormProvider = ({children, video}) => {
             "categoria": novaCategoria,
             "cor": novaCor
         }
-        videoContext.addCategoria(addCategoria)
+        videoContext.adicionarCategoria(addCategoria)
         videoContext.modalCategoria(false)
     }
 

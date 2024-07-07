@@ -5,6 +5,7 @@ const TituloCategorias = styled.h2`
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-transform: uppercase;
     width: 286px;
     height: 70px;
     font-weight: 800;

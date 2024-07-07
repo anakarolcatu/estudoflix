@@ -4,15 +4,18 @@ import { useVideosContext } from '../../context/Videos/Videos';
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 
 const CardContainer = styled.div`
-    max-width: 373px;
+    max-width: 390px;
+    min-width: 373px;
     margin-bottom: 40px;
     @media screen and (min-width: 1024px) {
-        max-width: 432px;
+        min-width: 432px;
+        height: 320px;
     }
 `
 const Imagem = styled.div`
     width: 100%;
-    min-height: 174px;
+    min-height: 260px;
+    background: url(${(props) => props.$bgImage});
     background-size: cover;
     background-position: center;
     border: 4px solid ${(props) => props.$cor};
@@ -26,7 +29,9 @@ const Rodape = styled.div`
     background-color: #000;
     width: 100%;
     height: 59px;
-    border: 4px solid ${(props) => props.$cor};
+    border-width: 0 4px 4px 4px;
+    border-style: solid;
+    border-color: ${(props) => props.$cor};
     border-radius: 0 0 15px 15px;
 `
 const Botao = styled.button`
@@ -42,14 +47,17 @@ const Botao = styled.button`
 
 const Card = ({ cor, video }) => {
     const videosContext = useVideosContext();
+    const thumbUrl = videosContext.getThumbUrl(video.url);
     return (
         <CardContainer>
             <Link to={`/${video.id}`}>
-                <Imagem $cor={cor} />
+                <Imagem $cor={cor} $bgImage={thumbUrl}/>
             </Link>
-            <Rodape>
+            <Rodape $cor={cor}>
                 <Botao onClick={() => videosContext.deletarVideo(video)}><HiOutlineTrash size={28}/>DELETAR</Botao>
-                <Botao onClick={() => videosContext.editarVideo(video)}><HiOutlinePencil size={28}/>EDITAR</Botao>
+                <Botao onClick={() => 
+                    {console.log("Chamando editarVideo com:", video);
+                    videosContext.editarVideo(video);}}><HiOutlinePencil size={28}/>EDITAR</Botao>
             </Rodape>
         </CardContainer>
     )

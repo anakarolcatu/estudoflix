@@ -16,22 +16,21 @@ const HeaderEstilizado = styled.header`
   padding: 0 60px;
   border-top: var(--border);
   box-shadow: var(--boxShadow);
-  >a>img {
+  > a > img {
     display: none;
   }
-  @media screen and (min-width: 1024px){
-        justify-content: space-between;
-        position: relative;
-        border-top: none;
-        border-bottom: var(--border);
-        z-index: 0;
-        >a>img{
-            display: inline;
-            width: 168px;
-        }
-
+  @media screen and (min-width: 1024px) {
+    justify-content: space-between;
+    position: relative;
+    border-top: none;
+    border-bottom: var(--border);
+    z-index: 0;
+    > a > img {
+      display: inline;
+      width: 168px;
     }
-`
+  }
+`;
 
 const Header = () => {
   return (

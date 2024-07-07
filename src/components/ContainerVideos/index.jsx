@@ -9,7 +9,7 @@ const VideosContainer = styled.main`
     flex-direction: column;
     width: 100%;
     margin: 40px 0;
-    padding: 0 10px;
+    padding: 0 40px;
 `
 
 const ContainerVideos = () => {
