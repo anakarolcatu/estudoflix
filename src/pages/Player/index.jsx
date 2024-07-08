@@ -40,15 +40,14 @@ const Player = () => {
     const videos = useVideosContext().videos
     const videoToShow = videos.find((video) => Number(video.id) === Number(parameters.id))
 
-    if(!videoToShow){
+    if(!videoToShow) {
         return <NaoEncontrada />
     }
 
-    return(
+    return (
         <StyledSection>
             <Titulo>{videoToShow.titulo}</Titulo>
             <iframe
-                
                 src={videoToShow.url} 
                 title={videoToShow.titulo}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

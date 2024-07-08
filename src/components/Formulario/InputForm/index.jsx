@@ -7,7 +7,7 @@ const FormInput = styled.fieldset`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 15px;
-    width: 90%;
+    width: 100%;
     background-color: transparent;
 `
 
@@ -36,6 +36,7 @@ const Input = styled.input`
     }
     &.invalido {
         border-color: rgba(229, 57, 53, 1);
+        &::placeholder {color: rgba(229, 57, 53, 1);}
     }
 `
 

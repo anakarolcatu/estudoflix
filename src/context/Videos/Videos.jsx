@@ -93,8 +93,8 @@ export function useVideosContext() {
 
     function adicionarCategoria(categoria) {
         axios.post(categoriasApi, {
-            nome: categoria.nome,
-            cor: categoria.cor
+            "nome": categoria.nome,
+            "cor": categoria.cor,
         })
         .then((resposta) => {
             setCategorias([...categorias, resposta.data]);

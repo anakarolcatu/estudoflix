@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const CorpoForm = styled.fieldset`
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -27,12 +27,14 @@ const TextArea = styled.textarea`
     font-size: 1.25rem;
     font-weight: 600;
     color: #fff;
-    padding-left: 10px;
+    padding: 10px;
     border: 3px solid ${(props) => props.$cor};
     border-radius: 15px;
     resize: none;
+    outline: none;
     &.invalido {
         border-color: rgba(229, 57, 53, 1);
+        color: rgba(229, 57, 53, 1);
     }
 `
 

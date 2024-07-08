@@ -38,7 +38,7 @@ const StyledSubTitle = styled.h3`
     border-bottom: 3px solid #393939;
     margin-bottom: 60px;
 `
-const StyledNewCategoryButton = styled.button`
+const StyledNewCategoryButton = styled.div`
     position: absolute;
     top: -70px;
     right: 30px;

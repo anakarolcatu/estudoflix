@@ -8,7 +8,7 @@ const SelectContainer = styled.fieldset`
     align-items: flex-start;
     gap: 15px;
     background-color: transparent;
-    width: 90%;
+    width: 100%;
 ` 
 const Label = styled.label`
     font-size: 1.25rem;

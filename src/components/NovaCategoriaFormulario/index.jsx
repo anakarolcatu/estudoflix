@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import {
-  FormProvider,
-  useFormContext,
-} from "../../context/Formulario/FormContext";
 import InputForm from "../Formulario/InputForm";
 import Botao from "../Botao";
+import { useVideosContext } from "../../context/Videos/Videos";
+import { useState } from "react";
 
 const FormularioNovaCategoria = styled.form`
   display: flex;
@@ -16,26 +14,24 @@ const FormularioNovaCategoria = styled.form`
 `;
 
 const NovaCategoriaFormulario = ({ categoria }) => {
-  return (
-    <FormProvider categoria={categoria}>
-      <CategoriaFormContent />
-    </FormProvider>
-  );
-};
+  const videoContext = useVideosContext();
+  const [novaCategoria, setNovaCategoria] = useState("");
+  const [novaCor, setNovaCor] = useState("#000");
 
-const CategoriaFormContent = () => {
-  const {
-    novaCategoria,
-    setNovaCategoria,
-    novaCor,
-    setNovaCor,
-    formCategoriaSubmit,
-  } = useFormContext();
+  function formSubmit(evento) {
+    evento.preventDefault()
+    const addCategoria = {
+      "categoria": novaCategoria,
+      "cor": novaCor
+    }
+    videoContext.adicionarCategoria(addCategoria)
+    videoContext.modalCategoria(false)
+  }
 
   return (
-    <FormularioNovaCategoria onSubmit={(evento) => formCategoriaSubmit(evento)}>
+    <FormularioNovaCategoria onSubmit={(evento) => formSubmit(evento)}>
       <InputForm
-        cor="#6bd1ff"
+        cor="#2271D1"
         label="Nova categoria"
         id="novaCategoria"
         type="text"
@@ -44,7 +40,7 @@ const CategoriaFormContent = () => {
         handleChange={(value) => setNovaCategoria(value)}
       />
       <InputForm
-        cor="#6bd1ff"
+        cor="#2271D1"
         label="Cor da categoria"
         id="novaCor"
         type="color"

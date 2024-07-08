@@ -18,6 +18,7 @@ const Dialog = styled.dialog`
     top: 0px;
     left: 0%;
     width: 374px;
+    color: #2271D1;
     background-color: #03122F;
     padding: 60px 20px;
     border: 5px solid #6BD1FF;
@@ -31,6 +32,7 @@ const ModalButton = styled.button`
     position: absolute;
     top: 5px;
     right: 5px;
+    color: #fff;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -43,11 +45,11 @@ const AddCategoriaModal = () => {
         videoContext.modalCategoriaOpen && (
             <>
                 <Overlay onClick={() => videoContext.modalCategoria(false)} />
-                <Dialog open={videoContext.modalCategoriaOpen}>
-                    <Titulo> ADICIONAR CATEGORIA:</Titulo>
+                <Dialog onClose={() => videoContext.modalCategoria(false)} open={!!open}>
+                    <Titulo>ADICIONAR CATEGORIA:</Titulo>
                     <NovaCategoriaFormulario />
                     <ModalButton onClick={() => videoContext.modalCategoria(false)}>
-                        <HiOutlineX />
+                        <HiOutlineX size={64}/>
                     </ModalButton>
                 </Dialog>
             </>

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { FormProvider, useFormContext } from '../../context/Formulario/FormContext';
 import InputForm from './InputForm';
 import SelectForm from './SelectForm';
 import TextAreaForm from './TextAreaForm';
 import { useVideosContext } from '../../context/Videos/Videos';
 import Botao from '../Botao';
+import { useEffect, useState } from 'react';
 
 const FormularioEstilo = styled.form`
     display: flex;
@@ -20,30 +20,54 @@ const DivBotao = styled.div`
     align-items: center;
     max-width: 525px;
     gap: 15px;
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 650px) {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 30px;
     }
 `;
 
 const Formulario = ({ method, video }) => {
-    return (
-        <FormProvider video={video}>
-            <FormContent method={method} />
-        </FormProvider>
-    );
-};
+    const videoContext = useVideosContext();
+    const [videoTitulo, setVideoTitulo] = useState('');
+    const [videoCategoria, setVideoCategoria] = useState('');
+    const [videoUrl, setVideoUrl] = useState('');
+    const [videoDescricao, setVideoDescricao] = useState('');
 
-const FormContent = ({ method }) => {
-    const {
-        videoTitulo, setVideoTitulo,
-        videoCategoria, setVideoCategoria,
-        videoUrl, setVideoUrl,
-        videoDescricao, setVideoDescricao,
-        formSubmit, limparCampos,
-    } = useFormContext();
+    useEffect(() => {
+        if (video) {
+            setVideoTitulo(video.titulo);
+            setVideoCategoria(video.categoria);
+            setVideoUrl(video.url);
+            setVideoDescricao(video.descricao);
+        }
+    }, []);
 
-    const { categorias } = useVideosContext();
+    const formSubmit = (evento) => {
+        evento.preventDefault();
+        videoContext.editarVideo(null);
+        const novoVideo = {
+            "titulo": videoTitulo,
+            "url": videoUrl,
+            "categoria": videoCategoria,
+            "descricao": videoDescricao,
+        };
+
+        if (video) {
+            novoVideo.id = video.id;
+            videoContext.alterarVideo(novoVideo);
+        } else {
+            videoContext.adicionarVideo(novoVideo);
+        }
+        limparCampos();
+    }
+
+    const limparCampos = () => {
+        setVideoCategoria('');
+        setVideoDescricao('');
+        setVideoUrl('');
+        setVideoTitulo('');
+    };
 
     return (
         <FormularioEstilo onSubmit={(evento) => formSubmit(evento)}>
@@ -52,7 +76,7 @@ const FormContent = ({ method }) => {
                 label="Título"
                 id="titulo"
                 type="text"
-                value={videoTitulo}
+                value={videoTitulo ? videoTitulo : ""}
                 placeholder="Título do video"
                 handleChange={(value) => setVideoTitulo(value)}
             />
@@ -60,8 +84,8 @@ const FormContent = ({ method }) => {
                 cor={method ? '#6bd1ff' : '#696969'}
                 label="Categoria"
                 id="categoria"
-                categorias={categorias}
-                value={videoCategoria}
+                categorias={videoContext.categorias}
+                value={videoCategoria ? videoCategoria : ""}
                 handleChange={(value) => setVideoCategoria(value)}
             />
             <InputForm
@@ -69,7 +93,7 @@ const FormContent = ({ method }) => {
                 label="Vídeo"
                 id="url"
                 type="url"
-                value={videoUrl}
+                value={videoUrl ? videoUrl : ""}
                 placeholder="Link do video"
                 handleChange={(value) => setVideoUrl(value)}
             />
@@ -77,7 +101,7 @@ const FormContent = ({ method }) => {
                 cor={method ? '#6bd1ff' : '#696969'}
                 label="Descrição"
                 id="descricao"
-                value={videoDescricao}
+                value={videoDescricao ? videoDescricao : ""}
                 placeholder="Sobre o que é esse vídeo?"
                 handleChange={(value) => setVideoDescricao(value)}
             />

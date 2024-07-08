@@ -55,9 +55,7 @@ const Card = ({ cor, video }) => {
             </Link>
             <Rodape $cor={cor}>
                 <Botao onClick={() => videosContext.deletarVideo(video)}><HiOutlineTrash size={28}/>DELETAR</Botao>
-                <Botao onClick={() => 
-                    {console.log("Chamando editarVideo com:", video);
-                    videosContext.editarVideo(video);}}><HiOutlinePencil size={28}/>EDITAR</Botao>
+                <Botao onClick={() => videosContext.editarVideo(video)}><HiOutlinePencil size={28}/>EDITAR</Botao>
             </Rodape>
         </CardContainer>
     )

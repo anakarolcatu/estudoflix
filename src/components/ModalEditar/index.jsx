@@ -54,7 +54,7 @@ const ModalEditar = ({ videoSelecionado }) => {
           onClose={() => fecharModal()}
           open={!!videoSelecionado}
         >
-            <Titulo>EDITAR VIDEO:</Titulo>
+            <Titulo>EDITAR VÍDEO:</Titulo>
             <Formulario method="dialog" video={videoSelecionado} />
             <ModalFechar onClick={() => fecharModal()}>
                 <HiOutlineX size={64}/>

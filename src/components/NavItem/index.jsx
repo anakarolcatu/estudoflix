@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Botao from "../Botao";
+import { GoHome, GoPlusCircle } from "react-icons/go";
 
 const StyledNavDiv = styled.div`
   display: flex;
