@@ -16,7 +16,7 @@ const FormularioNovaCategoria = styled.form`
 const NovaCategoriaFormulario = ({ categoria }) => {
   const videoContext = useVideosContext();
   const [novaCategoria, setNovaCategoria] = useState("");
-  const [novaCor, setNovaCor] = useState("#000");
+  const [novaCor, setNovaCor] = useState("#000000");
 
   function formSubmit(evento) {
     evento.preventDefault()

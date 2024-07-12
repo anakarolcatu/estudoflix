@@ -31,7 +31,7 @@ const BannerEstilizado = styled.div`
     position: relative; /* Para o pseudo-elemento */
     border-bottom: 3px solid ${(props) => props.$cor};
     background: linear-gradient(#0012338f, #0012338f),
-      url(${(props) => props.backgroundImage});
+      url(${(props) => props.$backgroundimage});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ const Banner = () => {
 
   return (
     <Link to={`/${currentVideo.id}`}>
-      <BannerEstilizado backgroundImage={thumbUrl} $cor={corCategoria}>
+      <BannerEstilizado $backgroundimage={thumbUrl} $cor={corCategoria}>
         <ContainerTexto>
           <BotaoCategoria cor={corCategoria}>
             {currentVideo.categoria}
