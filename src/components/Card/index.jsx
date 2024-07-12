@@ -26,7 +26,7 @@ const Rodape = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #000;
+    background-color: #000000;
     width: 100%;
     height: 59px;
     border-width: 0 4px 4px 4px;

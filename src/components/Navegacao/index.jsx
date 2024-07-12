@@ -4,7 +4,7 @@ import NavItem from "../NavItem";
 import { GoHome, GoPlusCircle } from "react-icons/go";
 
 const StyledNav = styled.nav`
-    background-color: #000;
+    background-color: #000000;
     
 `
 

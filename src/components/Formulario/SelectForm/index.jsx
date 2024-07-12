@@ -34,7 +34,7 @@ const Select = styled.select`
         color: rgba(229, 57, 53, 1);
     }
     option {
-        color: #000;
+        color: #000000;
     }
 `
 
@@ -54,7 +54,7 @@ const SelectForm = ({ cor, label, id, categorias, value, handleChange}) => {
             required
         >
             <option value="" hidden>Escolha uma categoria!</option>
-            {categorias.map((categoria) => <option key={categoria.nome}>{categoria.nome}</option>)}
+            {categorias.map((categoria) => <option key={categoria.id}>{categoria.nome}</option>)}
         </Select>
         </SelectContainer>
     )

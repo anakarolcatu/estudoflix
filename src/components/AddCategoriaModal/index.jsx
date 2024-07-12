@@ -32,7 +32,7 @@ const ModalButton = styled.button`
     position: absolute;
     top: 5px;
     right: 5px;
-    color: #fff;
+    color: #ffffff;
     background-color: transparent;
     border: none;
     cursor: pointer;

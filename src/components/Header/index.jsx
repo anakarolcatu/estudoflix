@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navegacao from "../Navegacao";
 
 const HeaderEstilizado = styled.header`
-  background-color: #000;
+  background-color: #000000;
   box-sizing: border-box;
   height: 125px;
   width: 100%;
