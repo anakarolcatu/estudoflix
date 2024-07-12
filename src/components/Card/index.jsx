@@ -40,7 +40,7 @@ const Botao = styled.button`
     gap: 20px;
     border: none;
     background-color: transparent;
-    color: #fff;
+    color: #ffffff;
     font-weight: 800;
     cursor: pointer;
 `

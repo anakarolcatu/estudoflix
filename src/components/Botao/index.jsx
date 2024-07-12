@@ -6,13 +6,13 @@ const StyledButton = styled.button`
     background-color: transparent;
     border: 2px solid #F5F5F5;
     border-radius: 10px;
-    color: #fff;
+    color: #ffffff;
     font-size: 1.25rem;
     font-weight: 900;
     text-align: center;
     cursor: pointer;
     &:hover{
-        background-color: #fff;
+        background-color: #ffffff;
         color: #2271D1;
     }
     &.active{

@@ -12,7 +12,7 @@ const CorpoForm = styled.fieldset`
 `
 
 const Label = styled.label`
-    color: #fff;
+    color: #ffffff;
     font-size: 1.25rem;
     font-weight: 600;
     &.invalido {
@@ -26,7 +26,7 @@ const TextArea = styled.textarea`
     background-color: transparent;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     padding: 10px;
     border: 3px solid ${(props) => props.$cor};
     border-radius: 15px;

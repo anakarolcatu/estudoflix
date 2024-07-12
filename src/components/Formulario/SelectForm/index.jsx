@@ -13,7 +13,7 @@ const SelectContainer = styled.fieldset`
 const Label = styled.label`
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     &.invalido {
         color: rgba(229, 57, 53, 1);
     }
@@ -24,7 +24,7 @@ const Select = styled.select`
     font-size: 1.25rem;
     background-color: transparent;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     padding-left: 10px;
     outline: none;
     border: 3px solid ${(props) => props.$cor};

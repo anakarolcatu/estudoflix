@@ -7,7 +7,7 @@ const BotaoMobileEstilizado = styled.button`
     border: none;
     border: ${(props) => props.active ? '2px solid rgba(34, 113, 209, 1)' : 'none'};
     border-radius: 50px;
-    color: ${(props) => props.active ? 'rgba(34, 113, 209, 1)' : '#fff'};
+    color: ${(props) => props.active ? 'rgba(34, 113, 209, 1)' : '#ffffff'};
     display: flex;
     align-items: center;
     padding: 0 15px;

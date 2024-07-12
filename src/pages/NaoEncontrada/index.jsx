@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Titulo from "../../components/Titulo";
 
 const Container = styled.section`
-    color: #fff;
+    color: #ffffff;
     margin-top: 150px;
 `
 

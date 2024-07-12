@@ -46,7 +46,7 @@ body {
 	flex-direction: column;
 	line-height: 1;
     background-color: rgba(0, 0, 0, 0.9);
-	color: #fff;
+	color: #ffffff;
 	min-height: 100vh;
 }
 ol, ul {

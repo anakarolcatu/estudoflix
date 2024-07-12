@@ -14,7 +14,7 @@ const FormInput = styled.fieldset`
 const Label = styled.label`
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     &.invalido {
         color: rgba(229, 57, 53, 1);
     }
@@ -25,7 +25,7 @@ const Input = styled.input`
     height: 62px;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
     background-color: transparent;
     border: 3px solid ${(props) => props.$cor};
     border-radius: 10px;
