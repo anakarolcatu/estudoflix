@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createContext, useContext, useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const videosApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-api/videos';
 const categoriasApi = 'https://my-json-server.typicode.com/anakarolcatu/estudoflix-api/categorias';
@@ -13,10 +14,8 @@ export default function VideosProvider({ children }) {
     const [modalCategoriaOpen, setModalCategoriaOpen] = useState(false);
     
     useEffect(() => {
-        console.log("Fetching videos...")
         axios.get(videosApi)
             .then(resposta => {
-                console.log("Videos fetched successfully:", resposta.data);
                 setVideos(resposta.data);
             })
             .catch(error => {
@@ -25,10 +24,8 @@ export default function VideosProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        console.log("Fetching categorias...");
         axios.get(categoriasApi)
             .then(resposta => {
-                console.log("Categorias fetched successfully:", resposta.data);
                 setCategorias(resposta.data);
             })
             .catch(error => {
@@ -53,7 +50,8 @@ export function useVideosContext() {
             titulo: video.titulo,
             url: video.url,
             descricao: video.descricao,
-            categoria: video.categoria
+            categoria: video.categoria,
+            id: uuidv4()
         })
         .then((resposta) => {
             setVideos([...videos, resposta.data]);
@@ -62,7 +60,7 @@ export function useVideosContext() {
         .catch(() => alert("Não foi possível adicionar o video, tente novamente."));
     }
 
-    function editarVideo(video) {
+    function abrirModalEditar(video) {
         console.log("editarVideo chamado com:", video);
         setVideoSelecionado(video);
         video ? window.scrollTo({ top: 0, behavior: 'smooth' }): "";
@@ -93,8 +91,9 @@ export function useVideosContext() {
 
     function adicionarCategoria(categoria) {
         axios.post(categoriasApi, {
-            "nome": categoria.nome,
-            "cor": categoria.cor,
+            nome: categoria.nome,
+            cor: categoria.cor,
+            id: uuidv4()
         })
         .then((resposta) => {
             setCategorias([...categorias, resposta.data]);
@@ -123,7 +122,7 @@ export function useVideosContext() {
         videoSelecionado,
         modalCategoriaOpen,
         modalCategoria,
-        editarVideo,
+        abrirModalEditar,
         adicionarVideo,
         deletarVideo,
         alterarVideo,

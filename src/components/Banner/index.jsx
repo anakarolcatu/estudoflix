@@ -31,7 +31,7 @@ const BannerEstilizado = styled.div`
     position: relative; /* Para o pseudo-elemento */
     border-bottom: 3px solid ${(props) => props.$cor};
     background: linear-gradient(#0012338f, #0012338f),
-      url(${(props) => props.$backgroundimage});
+      url(${(props) => props.$bg});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,9 +62,8 @@ const ContainerImg = styled.div`
 `
 
 const Banner = () => {
-  const { videos, extractVideoId } = useVideosContext();
+  const { videos, categorias, extractVideoId } = useVideosContext();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { categorias } = useVideosContext();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,12 +86,12 @@ const Banner = () => {
   const videoCategoria = categorias.filter(
     (categoria) => categoria.nome === currentVideo.categoria
   );
-  const corCategoria = videoCategoria[0].cor;
+  const corCategoria = (videoCategoria.length > 0) ? videoCategoria[0].cor : "#6BD1FF";
   const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
     <Link to={`/${currentVideo.id}`}>
-      <BannerEstilizado $backgroundimage={thumbUrl} $cor={corCategoria}>
+      <BannerEstilizado $bg={thumbUrl} $cor={corCategoria}>
         <ContainerTexto>
           <BotaoCategoria cor={corCategoria}>
             {currentVideo.categoria}
